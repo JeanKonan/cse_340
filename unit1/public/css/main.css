@@ -1,0 +1,104 @@
+html, body {
+    background-color: smokegray;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+body {
+    width: clamp(300px, 50%, 600px);
+    margin: 0 auto;
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+body {
+    nav {
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: inline;
+            margin-right: 15px;
+            position: relative;
+            
+            .active {
+                color: #aec3d9;
+    
+                &::after {
+                    content: ' ';
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    background-color: #aec3d9;
+                    bottom: -5px;
+                    left: 0;
+                }
+            }
+        }
+
+
+        a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+
+            &:hover {
+                color: #aec3d9;
+                transform: scale(1.5);
+                transition: transform .2s;
+            }
+        }
+    }
+}
+
+#about_main {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto;
+    column-gap: 2rem;
+    /* justify-content: center; */
+
+    #my_photo {
+        width: 150px;
+        grid-row: span 4;
+        border-radius: 10px;
+        margin: 2rem auto;
+        /* margin: auto 0; */
+    }
+
+    h2 {
+        grid-column-start: 2;
+    }
+
+    #about {
+        grid-column-start: 2;
+
+        ul {
+            display: flex;
+            gap: 1rem;
+            list-style-type: none;
+            padding: 0;
+
+            li {
+                text-align: center;
+            }
+        }
+    }
+}
+
+#about {
+    li {
+        &:hover {
+            transform: scale(1.2);
+            transition: transform .1s;
+            color: #aec3d9;
+        }
+    }
+}
