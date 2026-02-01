@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/catalog.css">
 
     <% if (NODE_ENV.includes('dev')) { %>
         <script>
@@ -24,14 +25,17 @@
     <% } %>
 
 </head>
-<body>
+<body class="<%= bodyClass %>">
     <header>
         <nav>
             <ul>
-                
                 <li><a href="/" <% if (title.toLowerCase() == 'welcome home') {%> class="active" <% }%>>Home</a></li>
                 <li><a href="/about" <% if (title.toLowerCase() == 'about me') {%> class="active" <% }%>>About</a></li>
+                <li><a href="/catalog" <% if (title.toLowerCase() == 'course catalog') {%> class="active" <% }%>>Catalog</a></li>
                 <li><a href="/products" <% if (title.toLowerCase() == 'our products') {%> class="active" <% }%>>Products</a></li>
+                <li><a href="/demo" <% if (title.toLowerCase() == 'middleware demo page') {%> class="active" <% }%>>Demo</a></li>
             </ul>
         </nav>
     </header>
+
+    <h3><%= greeting %>, welcome to my site!</h3>
