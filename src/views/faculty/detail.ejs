@@ -4,7 +4,7 @@
         <!-- <h2><%= title %></h2> -->
 
         <section class="faculty-detail">
-            <% if (faculty) { %>
+            <% if (Object.keys(faculty).length > 0) { %>
                 <h3><%= faculty.name %> - <%= faculty.title %></h3>
                 <p>Department: <%= faculty.department %></p>
                 <p>Email: <a href="mailto:<%= faculty.email %>"><%= faculty.email %></a></p>

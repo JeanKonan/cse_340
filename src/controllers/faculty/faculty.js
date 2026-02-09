@@ -1,8 +1,8 @@
-import { getFacultyById, getSortedFaculty } from "../../models/faculty/faculty.js";
+import { getFacultyBySlug, getSortedFaculty } from '../../models/faculty/faculty.js';
 
-const facultyListPage = (req, res) => {
+const facultyListPage = async (req, res) => {
     const sortBy = req.query.sort || 'name';
-    const faculty = getSortedFaculty(sortBy);
+    const faculty = await getSortedFaculty(sortBy);
     res.render('faculty/list', { 
         faculty,
         sortBy,
@@ -10,12 +10,12 @@ const facultyListPage = (req, res) => {
     });
 };
 
-const facultyDetailPage = (req, res, next) => {
-    const facultyId = req.params.facultyId;
-    const facultyMember = getFacultyById(facultyId);
+const facultyDetailPage = async (req, res, next) => {
+    const facultySlug = req.params.facultySlug;
+    const facultyMember = await getFacultyBySlug(facultySlug);
 
-    if (!facultyMember) {
-        const err = new Error(`Faculty member ${facultyId} not found`);
+    if (Object.keys(facultyMember).length === 0) {
+        const err = new Error(`Faculty member ${facultySlug} not found`);
         err.status = 404;
         return next(err);
     }
